@@ -158,3 +158,26 @@ position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
 	font-weight: bold;
 }
 
+.padding-0 {	
+	padding: 0;	
+}
+
+.padding-top {
+	padding-top: 30px;
+}
+
+.box-column {	
+	height: 90px;	
+	padding: 25px;
+	background-color: #ed6321;
+	color: #FFF;	
+	
+}
+
+.box-column2 {
+	min-height: 270px;
+}
+
+.specialtext {
+	padding: 2px 12px;
+}
