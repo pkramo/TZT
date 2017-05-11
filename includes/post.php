@@ -11,4 +11,4 @@ $_SESSION['message'] = "";
  
 // Account 
  if (Input::has('login')) accountManagement::login();
- 
+ if (Input::has('Register')) accountManagement::register();

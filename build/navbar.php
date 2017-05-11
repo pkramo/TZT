@@ -21,8 +21,8 @@ if(empty($_SESSION['user']['role'])) {
                 <li <?php if($file == 'test'){?> class="active" <?php } ?>><a href="index.php">Home</a></li>
                 <li <?php if($file == 'test'){?> class="active" <?php } ?>><a href="index.php">Home</a></li>                
             </ul> 
-            <ul class="nav navbar-nav pull-right">  
-            	<li class="active"><a class="active" href="login.php">login</a></li>
+            <ul class="nav navbar-nav navbar-right">  
+            	<li class="active"><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
             </ul>        
         </div>
     </div>

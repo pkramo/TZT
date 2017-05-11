@@ -46,7 +46,7 @@ include("build/navbar.php");
 						    <p>* = verplicht invullen</p>
 					    </div>
 					    <div class="form-group">
-					    	<input class="btn btn-primary form-control" type="submit" value="Registreer">
+					    	<input class="btn btn-primary form-control" type="submit" name="Register" value="Registreer">
 					    </div>
 				    </div>				    
 				</form>
