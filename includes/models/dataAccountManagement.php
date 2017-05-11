@@ -29,14 +29,14 @@ class dataAccountManagement extends connection {
 	}
 	// hier word de gebruikersnaam opgehaald uit de database
 	public function login($username) {
-		$sql = "SELECT * FROM users WHERE username = :username "; 		
+		$sql = "SELECT * FROM account WHERE account_id = :username "; 		
 		$q = $this -> conn -> prepare($sql);
 		$q -> BindParam(':username',$username);		
 		$q -> execute();		
 		$row = $q->fetchAll();
 		
 		if ($row == true){
-			return $row[0]['password'];
+			return $row[0]['Wachtwoord'];			
 		}else{
 			return false;
 		}
