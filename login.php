@@ -10,6 +10,11 @@ include("build/navbar.php");
 		</div>
 		<div class="col-md-8 padding-auto">
 			<div class="col-md-12 lightgrey-background padding-auto">
+				<?php // laad de errors in het inlogscherm
+							if ($_SESSION['alert']) {
+								echo $_SESSION['message'];
+							}
+						?>
 				<h2>Login</h2>
 				<form method="POST">
 					<div class="form-group"><input class="form-control" type="text" name="username" placeholder="Inlognaam"></div>

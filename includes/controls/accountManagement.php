@@ -21,14 +21,18 @@ class accountManagement
                 
             $bedrijfsnaam = input::get('Bedrijfsnaam');
             $KVK = input::get('KVK');
-            $straatbedrijf = input::get('Straatnaam bedrijf');
-            $huisnummerbedrijf = input::get('Huisnummer bedrijf');
-            $postcodebedrijf = input::get('Postcode bedrijf');
-            $plaatsbedrijf = input::get('Plaats bedrijf');
-            $telefoonnummerbedrijf = input::get('Telefoonnummer bedrijf');
-            VAR_DUMP($voornaam, $voorletter, $tussenvoegsel, $achternaam, $geboortedatum, $straat, $huisnummer, $postcode, $woonplaats, $telefoonnummer, $emailadres, $wachtwoord, $soortklant, $bedrijfsnaam, $KVK, $straatbedrijf, $huisnummerbedrijf, $postcodebedrijf, $plaatsbedrijf, $telefoonnummerbedrijf);
-            exit;
-            
+            $straatbedrijf = input::get('Straatnaambedrijf');
+            $huisnummerbedrijf = input::get('Huisnummerbedrijf');
+            $postcodebedrijf = input::get('Postcodebedrijf');
+            $plaatsbedrijf = input::get('Plaatsbedrijf');
+            $telefoonnummerbedrijf = input::get('Telefoonnummerbedrijf');
+            $wachtwoord1 = password_hash($wachtwoord, PASSWORD_DEFAULT);
+			
+			if ($register->setRegister($voornaam, $voorletter, $tussenvoegsel, $achternaam, $geboortedatum, $straat, $huisnummer, $postcode, $woonplaats, $telefoonnummer, $emailadres, $wachtwoord1, $soortklant, $bedrijfsnaam, $KVK, $straatbedrijf, $huisnummerbedrijf, $postcodebedrijf, $plaatsbedrijf, $telefoonnummerbedrijf)) {
+				 $_SESSION['alert'] = true; 
+                 $_SESSION['message'] = '<div class="alert alert-success">Gebruiker succesvol opgeslagen!</div>';
+                                      
+			}
         }
 	
 	public static function login()
@@ -38,15 +42,15 @@ class accountManagement
 		$password  = Input::get('password');        
 
        	
-		if (password_verify($password, $login->login($username)) == true) {
+	    if (password_verify($password, $login->login($username)) == true) {
 			$_SESSION['user']['loggedin'] = true;
 			$_SESSION['user']['username'] = Input::get('username');
 			$role = $login->getRole(Input::get('username'));				
-			$_SESSION['user']['role'] = $role[0]['rol'];				
+			$_SESSION['user']['role'] = $role[0]['rol'];					
 			header('Location: admin/index.php');			
 
 		} else {
-            
+             
              $_SESSION['alert'] = true; 
              $_SESSION['message'] = '<div class="alert alert-danger">Gebruikersnaam of wachtwoord verkeerd!</div>';
             

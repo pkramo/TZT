@@ -10,6 +10,11 @@ include("build/navbar.php");
 		</div>
 		<div class="col-md-8 padding-auto">
 			<div class="col-md-12 lightgrey-background padding-auto">
+				<?php // laad de errors in het inlogscherm
+							if ($_SESSION['alert']) {
+								echo $_SESSION['message'];
+							}
+				?>
 				<h2>Maak hier je account aan</h2>
 				<form method="POST">
 					<div class="form-group">
@@ -37,11 +42,11 @@ include("build/navbar.php");
 						    </div>
 						    <label for="Bedrijfsnaam">Bedrijfsnaam </label> <input class="form-control" type="text" name="Bedrijfsnaam">
 						    <label for="KVK-nummer">KVK-nummer</label> <input class="form-control" type="text" name="KVK">
-						    <label for="Straatnaam bedrijf">Straatnaam bedrijf</label> <input class="form-control" type="text" name="Straatnaam bedrijf">
-						    <label for="Huisnummer bedrijf">Huisnummer bedrijf</label> <input class="form-control" type="text" name="Huisnummer bedrijf">
-						    <label for="Postcode bedrijf">Postcode bedrijf</label> <input class="form-control" type="text" name="Postcode bedrijf">
-						    <label for="Plaats bedrijf">Plaats bedrijf</label> <input class="form-control" type="text" name="Plaats bedrijf">
-						    <label for="Telefoonnummer bedrijf">Telefoonnummer bedrijf</label> <input class="form-control" type="text" name="Telefoonnummer bedrijf">
+						    <label for="Straatnaam bedrijf">Straatnaam bedrijf</label> <input class="form-control" type="text" name="Straatnaambedrijf">
+						    <label for="Huisnummer bedrijf">Huisnummer bedrijf</label> <input class="form-control" type="text" name="Huisnummerbedrijf">
+						    <label for="Postcode bedrijf">Postcode bedrijf</label> <input class="form-control" type="text" name="Postcodebedrijf">
+						    <label for="Plaats bedrijf">Plaats bedrijf</label> <input class="form-control" type="text" name="Plaatsbedrijf">
+						    <label for="Telefoonnummer bedrijf">Telefoonnummer bedrijf</label> <input class="form-control" type="text" name="Telefoonnummerbedrijf">
 						    <p>* = verplicht invullen</p>
 					    </div>
 					    <div class="form-group">

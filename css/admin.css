@@ -20,6 +20,8 @@ body {
     padding-left: 0;
 }
 
+
+
 #page-wrapper {
     width: 100%;
     padding: 0;
@@ -45,6 +47,13 @@ body {
 
 .top-nav {
     padding: 0 15px;
+     
+}
+
+.nav-color {
+	background-color: #191919; !important 
+	border-bottom: 1px solid #191919;
+	border-color: #191919;
 }
 
 .top-nav>li {

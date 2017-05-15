@@ -31,48 +31,48 @@ class dataAccountManagement extends connection {
                 :plaatsbedrijf, 
                 :telefoonnummerbedrijf)";
 		$q = $this -> conn -> prepare($sql);
-                $q -> bindValue(':gebruikersnaam', $emailadres, PDO::PARAM_STR);
+        $q -> bindValue(':gebruikersnaam', $emailadres, PDO::PARAM_STR);
 		$q -> bindValue(':voornaam', $voornaam, PDO::PARAM_STR);
-                $q -> bindValue(':voorletter', $voorletter, PDO::PARAM_STR);
+        $q -> bindValue(':voorletter', $voorletter, PDO::PARAM_STR);
 		$q -> bindValue(':tussenvoegsel', $tussenvoegsel, PDO::PARAM_STR);		
 		$q -> bindValue(':achternaam', $achternaam, PDO::PARAM_STR);
 		$q -> bindValue(':geboortedatum', $geboortedatum, PDO::PARAM_STR);	
 		$q -> bindValue(':straat', $straat, PDO::PARAM_STR);	
 		$q -> bindValue(':huisnummer', $huisnummer, PDO::PARAM_STR);	
 		$q -> bindValue(':postcode', $postcode, PDO::PARAM_STR);
-                $q -> bindValue(':woonplaats', $woonplaats, PDO::PARAM_STR);
+        $q -> bindValue(':woonplaats', $woonplaats, PDO::PARAM_STR);
 		$q -> bindValue(':telefoonnummer', $telefoonnummer, PDO::PARAM_STR);	
 		$q -> bindValue(':emailadres', $emailadres, PDO::PARAM_STR);	
 		$q -> bindValue(':wachtwoord', $wachtwoord, PDO::PARAM_STR);	
 		$q -> bindValue(':soortklant', $soortklant, PDO::PARAM_STR);
-                $q -> bindValue(':bedrijfsnaam', $bedrijfsnaam, PDO::PARAM_STR);
-                $q -> bindValue(':KVK', $KVK, PDO::PARAM_STR);
-                $q -> bindValue(':straatbedrijf', $straatbedrijf, PDO::PARAM_STR);
-                $q -> bindValue(':huisnummerbedrijf', $huisnummerbedrijf, PDO::PARAM_STR);	
+        $q -> bindValue(':bedrijfsnaam', $bedrijfsnaam, PDO::PARAM_STR);
+        $q -> bindValue(':KVK', $KVK, PDO::PARAM_STR);
+        $q -> bindValue(':straatbedrijf', $straatbedrijf, PDO::PARAM_STR);
+        $q -> bindValue(':huisnummerbedrijf', $huisnummerbedrijf, PDO::PARAM_STR);	
 		$q -> bindValue(':postcodebedrijf', $postcodebedrijf, PDO::PARAM_STR);
-                $q -> bindValue(':plaatsbedrijf', $plaatsbedrijf, PDO::PARAM_STR);
-                $q -> bindValue(':telefoonnummerbedrijf', $telefoonnummerbedrijf, PDO::PARAM_STR);
+        $q -> bindValue(':plaatsbedrijf', $plaatsbedrijf, PDO::PARAM_STR);
+        $q -> bindValue(':telefoonnummerbedrijf', $telefoonnummerbedrijf, PDO::PARAM_STR);
 		$q -> execute();
                
 		return true;
 	}
 	// hier word de gebruikersnaam opgehaald uit de database
 	public function login($username) {
-		$sql = "SELECT * FROM account WHERE account_id = :username "; 		
+		$sql = "SELECT * FROM account WHERE gebruikersnaam = :username "; 		
 		$q = $this -> conn -> prepare($sql);
 		$q -> BindParam(':username',$username);		
 		$q -> execute();		
 		$row = $q->fetchAll();
 		
 		if ($row == true){
-			return $row[0]['Wachtwoord'];			
+			return $row[0]['wachtwoord'];			
 		}else{
 			return false;
 		}
 	}
 	// hier word de rol van de gebruiker uit de database gehaald 
     public function getRole($username) {
-		$sql = "SELECT rol FROM users WHERE username = :username";	
+		$sql = "SELECT rol FROM account WHERE gebruikersnaam = :username";	
 		$q = $this -> conn -> prepare($sql);
 		$q -> bindValue(':username', $username, PDO::PARAM_STR);
 		$q -> execute();

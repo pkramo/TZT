@@ -1,8 +1,3 @@
-<!-- <?php 
-if(empty($_SESSION['user']['role'])) {
-	$_SESSION['user']['role'] = 'gast';
-} 
-?> -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
