@@ -4,8 +4,8 @@ include("build/header.php");
 ?>
 
 <div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-10">
 		<h1>Bestelling plaatsen</h1>
 	    <!--laat zien dat * betekent verplicht veld -->	    
 	        <form method='post'>
@@ -37,7 +37,7 @@ include("build/header.php");
 		   	</div>
 		</form>
 	</div>
-	<div class="col-md-2"></div>
+	<div class="col-xs-1"></div>
 </div>
 
 <?php
