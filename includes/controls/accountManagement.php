@@ -2,7 +2,7 @@
 class accountManagement
 {
 
-//Registreren gebruiker
+//Registreren gebruiker hoi
 	public static function register(){
             $register  = new dataAccountManagement;
             $voornaam = input::get('Voornaam');

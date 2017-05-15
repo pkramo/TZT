@@ -5,7 +5,7 @@
  
 class dataAccountManagement extends connection {
 	
-	// Registreren van gebruikers in de database
+	// Registreren van gebruikers in de database hoi
 	public function setRegister($username, $password, $fname,$insertion,$lname,$rol,$email,$tel,$dys,$comment,$date,$class,$school) {
 		$sql = "INSERT INTO users (username, password, f_name, insertion, l_name, rol, email, tel, dys, comment, join_date, class, school) 
 		VALUES (:username,:password, :f_name, :insertion, :l_name, :rol, :email, :tel, :dys, :comment, :join_date ,:class, :school)";
