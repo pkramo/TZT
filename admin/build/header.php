@@ -62,7 +62,7 @@ if($_SESSION['user']['role'] == '1') {
                         <a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a>
                     </li>                    
                     <li <?php if($file == 'form'){?> class="active" <?php } ?>>
-                        <a href="page.php"><span class="glyphicon glyphicon-user"></span> Page</a>
+                        <a href="bestelling.php"><span class="glyphicon glyphicon-user"></span> Bestelling</a>
                     </li>                    
                     <!-- <li <?php if($file == 'lease_article'){?> class="active" <?php } ?>>
                         <a href="lease_article.php"><i class="fa fa-fw fa-shopping-cart"></i> Verhuur beheer</a>
