@@ -33,7 +33,7 @@ include("build/header.php");
 			    <label for="Gewicht">Gewicht(kg)</label> <input class="form-control" type="text" name="Gewicht"><br>
 			</div>
 			<div class="form-group">
-		    	<input type="submit" class="btn btn-primary form-control" name="Verstuur" value="Verstuur gegevens">	
+		    	<input type="submit" class="btn btn-primary form-control" name="Verstuur" value="Plaats bestelling">	
 		   	</div>
 		</form>
 	</div>
