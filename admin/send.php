@@ -24,8 +24,8 @@ include('build/header.php');
       <tbody>
 <?php	
 
-	    
- foreach(order::getOrder() as $order)
+$user = $_SESSION['user']['username']; 	    
+foreach(order::getMyPackage($user) as $order)
 {
 	echo'
     <tr>    
@@ -36,9 +36,8 @@ include('build/header.php');
         <td>'.$order['Puntenwaarde'].'</td>        
         <td>
     		<form method="post">
-	    		<input type="hidden" name="id" value="'. $order['Bestelling_id'] .'">
-	    		<input type="hidden" name="klant" value="'. $order['Klant'] .'">									
-				<button type="submit" name="pickPackage" value="update" class="btn-cms btn btn-primary"><span class="glyphicon glyphicon-inbox"></span></button>
+	    		<input type="hidden" name="id" value="'. $order['Bestelling_id'] .'">	    										
+				<button type="submit" name="finished" value="Verwijder" class="btn-cms btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
 			</form>
 			</td>
        </tr> 

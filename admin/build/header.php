@@ -51,19 +51,30 @@ if($_SESSION['user']['role'] == '1') {
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav nav-color">
                 <li class="dropdown">
-                    <a href="logout.php"> <?php echo "Welkom ". $_SESSION['user']['username'].", Log hier uit";  ?></a>                    
+                    <a href="logout.php"> <?php echo "Uitloggen";  ?></a>                    
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse nav-color">
+                
                 <ul class="nav navbar-nav side-nav">
-                    <?php $file = basename($_SERVER['PHP_SELF'] , '.php'); ?>                    
-                    <li <?php if($file == 'userInfo'){?> class="active" <?php } ?>>
-                        <a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    <?php $file = basename($_SERVER['PHP_SELF'] , '.php'); ?>
+                    <li>
+                    	<p class="navbar-text"><b><?php echo "Welkom ". $_SESSION['user']['username'] ."!"; ?></b></p>
+                    </li>
+                    <span class=""></span>                   
+                    <li <?php if($file == 'index'){?> class="active" <?php } ?>>
+                        <a href="index.php"><span class="glyphicon glyphicon-plus"></span> Pakket Kiezen</a>
                     </li>                    
-                    <li <?php if($file == 'form'){?> class="active" <?php } ?>>
-                        <a href="bestelling.php"><span class="glyphicon glyphicon-user"></span> Bestelling</a>
-                    </li>                    
+                    <li <?php if($file == 'bestelling'){?> class="active" <?php } ?>>
+                        <a href="bestelling.php"><span class="glyphicon glyphicon-cloud"></span> Bestelling Plaatsen</a>
+                    </li>
+					<li <?php if($file == 'myOrders'){?> class="active" <?php } ?>>
+                        <a href="myOrders.php"><span class="glyphicon glyphicon-list"></span> Mijn Bestellingen</a>
+                    </li>
+                    <li <?php if($file == 'send'){?> class="active" <?php } ?>>
+                        <a href="send.php"><span class="glyphicon glyphicon-inbox"></span> Mijn Leveringen</a>
+                    </li>                   
                     <!-- <li <?php if($file == 'lease_article'){?> class="active" <?php } ?>>
                         <a href="lease_article.php"><i class="fa fa-fw fa-shopping-cart"></i> Verhuur beheer</a>
                     </li> -->              

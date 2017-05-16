@@ -15,3 +15,8 @@ $_SESSION['message'] = "";
  
  // Bestellingen
  if (Input::has('placeOrder')) order::placeOrder();
+ if (Input::has('deleteMyOrder')) order::deleteOrder();
+ if (Input::has('pickPackage')) order::pickPackage();
+ if (Input::has('finished')) order::finishedOrder();
+
+ 
