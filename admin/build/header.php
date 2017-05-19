@@ -1,7 +1,7 @@
 <?php
 include('../includes/autoloader.php');
 
-if($_SESSION['user']['role'] == '1') {
+if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +10,16 @@ if($_SESSION['user']['role'] == '1') {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CMS">
-    <meta name="author" content="HBL">
+    <meta name="description" content="tzt">
+    <meta name="author" content="tzt">
     
-	<meta property="og:title" content="hbl">
-	<meta property="og:description" content="hbl">
-	<meta property="og:url" content="www.hbl.nl/admin">
-	<meta property="og:site_name" content="hbl">
+	<meta property="og:title" content="tzt">
+	<meta property="og:description" content="tzt">
+	<meta property="og:url" content="www.tzt.nl/admin">
+	<meta property="og:site_name" content="tzt">
 	<meta property="og:type" content="website">	
 	
-	<title>CMS</title>
+	<title>TZT</title>
    	
     <!-- Custom CSS -->    
     <link href="https://bootswatch.com/cerulean/bootstrap.min.css" rel="stylesheet"> 
@@ -60,24 +60,63 @@ if($_SESSION['user']['role'] == '1') {
                 <ul class="nav navbar-nav side-nav">
                     <?php $file = basename($_SERVER['PHP_SELF'] , '.php'); ?>
                     <li>
-                    	<p class="navbar-text"><b><?php echo "Welkom ". $_SESSION['user']['username'] ."!"; ?></b></p>
+                    	<p class="navbar-text"><b><?php echo "Welkom ". $_SESSION['user']['name'] ."!"; ?></b></p>
+                    </li>        
+                    <li>
+	                    <a data-toggle="collapse" data-parent="#accordion" href="#koerier"><span class="glyphicon glyphicon-send"></span>
+	                    	 Koerier
+	                    </a>            
+	                    <div id="koerier" class="collapse collapsed">
+	                    	<ul class="collapsemenu">
+		                    	<li <?php if($file == 'index'){?> class="active" <?php } ?>>
+		                        	<a href="index.php"><span class="glyphicon glyphicon-plus"></span> Pakket Kiezen</a>
+		                    	</li>	                    
+		                    	<li <?php if($file == 'send'){?> class="active" <?php } ?>>
+		                        	<a href="send.php"><span class="glyphicon glyphicon-inbox"></span> Mijn Leveringen</a>
+		                    	</li>  
+	                    	</ul>
+	                    </div>                   
                     </li>
-                    <span class=""></span>                   
-                    <li <?php if($file == 'index'){?> class="active" <?php } ?>>
-                        <a href="index.php"><span class="glyphicon glyphicon-plus"></span> Pakket Kiezen</a>
-                    </li>                    
-                    <li <?php if($file == 'bestelling'){?> class="active" <?php } ?>>
-                        <a href="bestelling.php"><span class="glyphicon glyphicon-cloud"></span> Bestelling Plaatsen</a>
+                    <li>
+	                 <a data-toggle="collapse" data-parent="#accordion" href="#klant"><span class="glyphicon glyphicon-briefcase"></span>
+	                 	 	Klant
+	                 </a>            
+	                    <div id="klant" class="collapse">
+                    	<ul class="collapsemenu">
+	                    	<li <?php if($file == 'bestelling'){?> class="active" <?php } ?>>
+	                        	<a href="bestelling.php"><span class="glyphicon glyphicon-cloud"></span> Bestelling Plaatsen</a>
+	                    	</li>
+	                    	<li <?php if($file == 'myOrders'){?> class="active" <?php } ?>>
+	                        	<a href="myOrders.php"><span class="glyphicon glyphicon-list"></span> Mijn Bestellingen</a>
+	                    	</li>
+                    	</ul>
+                    </div>
                     </li>
-					<li <?php if($file == 'myOrders'){?> class="active" <?php } ?>>
-                        <a href="myOrders.php"><span class="glyphicon glyphicon-list"></span> Mijn Bestellingen</a>
+                    <li <?php if($file == 'mijnGegevens'){?> class="active" <?php } ?>>
+	                      <a href="mijnGegevens.php"><span class="glyphicon glyphicon-user"></span> Mijn gegevens</a>
+	                </li>
+	                
+	                <?php if($_SESSION['user']['role'] == '2') { ?>
+	                	
+	                 <li>
+	                 <a data-toggle="collapse" data-parent="#accordion" href="#admin"><span class="glyphicon glyphicon-list"></span>
+	                 	 	Admin
+	                 </a>            
+	                    <div id="admin" class="collapse">
+                    	<ul class="collapsemenu">
+	                    	<li <?php if($file == 'createadmin'){?> class="active" <?php } ?>>
+	                        	<a href="createadmin.php"><span class="glyphicon glyphicon-user"></span> Nieuwe admin</a>
+	                    	</li>
+	                    	<li <?php if($file == 'infousers'){?> class="active" <?php } ?>>
+	                        	<a href="infousers.php"><span class="glyphicon glyphicon-menu-hamburger"></span> Alle users</a>
+	                    	</li>
+                    	</ul>
+                    </div>
                     </li>
-                    <li <?php if($file == 'send'){?> class="active" <?php } ?>>
-                        <a href="send.php"><span class="glyphicon glyphicon-inbox"></span> Mijn Leveringen</a>
-                    </li>                   
-                    <!-- <li <?php if($file == 'lease_article'){?> class="active" <?php } ?>>
-                        <a href="lease_article.php"><i class="fa fa-fw fa-shopping-cart"></i> Verhuur beheer</a>
-                    </li> -->              
+                    
+                    <?php } ?>                  
+                                     
+                           
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

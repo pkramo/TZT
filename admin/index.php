@@ -8,7 +8,7 @@ include('build/header.php');
         <div class="col-md-1"><!--Linker kant--></div>
   <div class="col-md-10">
     
-    <h1>Kies je bestelling</h1>
+    <h1>Kies uw pakket</h1>
         <?php
 	    if($_SESSION['alert']) {
 	        echo $_SESSION['message']; 

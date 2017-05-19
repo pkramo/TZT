@@ -17,7 +17,8 @@ class accountManagement
             $telefoonnummer = input::get('Telefoonnummer');
             $emailadres = input::get('Emailadres');
             $wachtwoord = input::get('Wachtwoord');
-            $soortklant = input::get('Soort');
+            $soortklant = input::get('Soort');			
+			$rol = 1;
                 
             $bedrijfsnaam = input::get('Bedrijfsnaam');
             $KVK = input::get('KVK');
@@ -28,12 +29,39 @@ class accountManagement
             $telefoonnummerbedrijf = input::get('Telefoonnummerbedrijf');
             $wachtwoord1 = password_hash($wachtwoord, PASSWORD_DEFAULT);
 			
-			if ($register->setRegister($voornaam, $voorletter, $tussenvoegsel, $achternaam, $geboortedatum, $straat, $huisnummer, $postcode, $woonplaats, $telefoonnummer, $emailadres, $wachtwoord1, $soortklant, $bedrijfsnaam, $KVK, $straatbedrijf, $huisnummerbedrijf, $postcodebedrijf, $plaatsbedrijf, $telefoonnummerbedrijf)) {
+			if ($register->setRegister($voornaam, $voorletter, $tussenvoegsel, $achternaam, $geboortedatum, $straat, $huisnummer, $postcode, $woonplaats, $telefoonnummer, $emailadres, $wachtwoord1, $soortklant, $bedrijfsnaam, $KVK, $straatbedrijf, $huisnummerbedrijf, $postcodebedrijf, $plaatsbedrijf, $telefoonnummerbedrijf, $rol)) {
 				 $_SESSION['alert'] = true; 
                  $_SESSION['message'] = '<div class="alert alert-success">Gebruiker succesvol opgeslagen!</div>';
                                       
 			}
         }
+
+	public static function registerAdmin(){
+	            $register  = new dataAccountManagement;
+	            $voornaam = input::get('Voornaam');
+	            $voorletter = input::get('Voorletter');
+	            $tussenvoegsel = input::get('Tussenvoegsel');
+	            $achternaam = input::get('Achternaam');
+	            $geboortedatum = input::get('Geboortedatum');
+	            $straat = input::get('Straat');
+	            $huisnummer = input::get('Huisnummer');
+	            $postcode = input::get('Postcode');
+	            $woonplaats = input::get('Woonplaats');
+	            $telefoonnummer = input::get('Telefoonnummer');
+	            $emailadres = input::get('Emailadres');
+	            $wachtwoord = input::get('Wachtwoord');
+	            $soortklant = input::get('Soort');			
+				$rol = 2;
+	                
+	       
+	            $wachtwoord1 = password_hash($wachtwoord, PASSWORD_DEFAULT);
+				
+				if ($register->setRegisterAdmin($voornaam, $voorletter, $tussenvoegsel, $achternaam, $geboortedatum, $straat, $huisnummer, $postcode, $woonplaats, $telefoonnummer, $emailadres, $wachtwoord1, $rol)) {
+					 $_SESSION['alert'] = true; 
+	                 $_SESSION['message'] = '<div class="alert alert-success">Gebruiker succesvol opgeslagen!</div>';
+	                                      
+				}
+	       }
 	
 	public static function login()
 	{
@@ -45,6 +73,8 @@ class accountManagement
 	    if (password_verify($password, $login->login($username)) == true) {
 			$_SESSION['user']['loggedin'] = true;
 			$_SESSION['user']['username'] = Input::get('username');
+			$name = $login->getName(Input::get('username'));
+			$_SESSION['user']['name'] = $name[0]['voornaam'];
 			$role = $login->getRole(Input::get('username'));				
 			$_SESSION['user']['role'] = $role[0]['rol'];					
 			header('Location: admin/index.php');			
@@ -151,6 +181,12 @@ public static function deleteUser() {
                  $_SESSION['message'] = '<div class="alert alert-success">Succesvol verwijderd!</div>';
             }
 		}
+	 
+	 public static function getUser($user){
+		$users = new dataAccountManagement;				
+		$output = $users->getUser($user);			
+		return $output;
+	}
     
 	}
 

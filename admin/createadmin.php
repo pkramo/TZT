@@ -1,21 +1,20 @@
 <?php
-include("includes/autoloader.php");
-include("build/head.php");
-include("build/navbar.php");
+
+include("build/header.php");
+
 ?>
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-2">			
+		<div class="col-xs-1">			
 		</div>
-		<div class="col-md-8 padding-auto">
-			<div class="col-md-12 lightgrey-background padding-auto">
+		<div class="col-xs-10">			
 				<?php // laad de errors in het inlogscherm
 							if ($_SESSION['alert']) {
 								echo $_SESSION['message'];
 							}
 				?>
-				<h2>Maak hier je account aan</h2>
+				<h2>Maak hier je admin account aan</h2>
 				<form method="POST">
 					<div class="form-group">
 					    <div class="form-group">
@@ -31,32 +30,20 @@ include("build/navbar.php");
 						    <label for="Telefoonnummer"> Telefoonnummer*</label><input required class="form-control" type="text" name="Telefoonnummer">
 						    <label for="Emailadres">Emailadres* </label><input required class="form-control" type="email" name="Emailadres">
 						    <label for="Wachtwoord">Wachtwoord* </label> <input required class="form-control" type="password" name="Wachtwoord">
-						    <div class="form-group">
-							    <label for="Maak uw keuze">Maak uw keuze:* </label> 
-							    <div class="radio">
-							    	<label for="Particulier"><input  type="radio" name="Soort" value="Particulier">Particulier</label> 
-							    </div>
-							    <div class="radio"> 
-							    	<label for="Bedrijf"><input type="radio" name="Soort" value="Bedrijf">Bedrijf</label>
-							    </div>
-						    </div>
-						    <label for="Bedrijfsnaam">Bedrijfsnaam </label> <input class="form-control" type="text" name="Bedrijfsnaam">
-						    <label for="KVK-nummer">KVK-nummer</label> <input class="form-control" type="text" name="KVK">
-						    <label for="Straatnaam bedrijf">Straatnaam bedrijf</label> <input class="form-control" type="text" name="Straatnaambedrijf">
-						    <label for="Huisnummer bedrijf">Huisnummer bedrijf</label> <input class="form-control" type="text" name="Huisnummerbedrijf">
-						    <label for="Postcode bedrijf">Postcode bedrijf</label> <input class="form-control" type="text" name="Postcodebedrijf">
-						    <label for="Plaats bedrijf">Plaats bedrijf</label> <input class="form-control" type="text" name="Plaatsbedrijf">
-						    <label for="Telefoonnummer bedrijf">Telefoonnummer bedrijf</label> <input class="form-control" type="text" name="Telefoonnummerbedrijf">
-						    <p>* = verplicht invullen</p>
+						  
 					    </div>
 					    <div class="form-group">
-					    	<input class="btn btn-primary form-control" type="submit" name="Register" value="Registreer">
+					    	<input class="btn btn-primary form-control" type="submit" name="RegisterAdmin" value="Registreer">
 					    </div>
 				    </div>				    
 				</form>
-			</div>
+			
 		</div>
-		<div class="col-md-2">			
+		<div class="col-xs-1">			
 		</div>
 	</div>
 </div>
+
+<?php
+include("build/footer.php");
+?>

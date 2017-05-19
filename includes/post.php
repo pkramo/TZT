@@ -12,6 +12,8 @@ $_SESSION['message'] = "";
 // Account 
  if (Input::has('login')) accountManagement::login();
  if (Input::has('Register')) accountManagement::register();
+ if (Input::has('RegisterAdmin')) accountManagement::registerAdmin();
+ if (Input::has('deleteUser')) accountManagement::deleteUser();
  
  // Bestellingen
  if (Input::has('placeOrder')) order::placeOrder();
