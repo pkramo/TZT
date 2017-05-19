@@ -13,15 +13,19 @@ include("build/navbar.php");
 		</div>	
 		<div class="col-xs-12 col-md-7 padding-auto" >
 			<div class="col-md-12 lightgrey-background padding-auto">
+				<?php
+			    if($_SESSION['alert']) {
+			        echo $_SESSION['message']; 
+			    } ?>
 				<form method="POST">
 					<div class="form-group">
 						<h1>Neem contact met ons op!</h1>
-						<label for="name">Naam: </label><input class="form-control" type="text" name="name">
-						<label for="email">Email: </label><input class="form-control" type="email" name="email">
-						<label for="text">Vul hier uw bericht in: </label><textarea rows="6" class="form-control" name="text"></textarea>
+						<label for="name">Naam: </label><input class="form-control" type="text" name="nameContact">
+						<label for="email">Email: </label><input class="form-control" type="email" name="emailContact">
+						<label for="text">Vul hier uw bericht in: </label><textarea rows="6" class="form-control" name="contentContact"></textarea>
 					</div>
 					<div class="form-group">	
-						<input type="submit" class="btn btn-info form-control" value="Verzend">
+						<input type="submit" class="btn btn-info form-control" name="sendContact" value="Verzend">
 					</div>	
 				</form>			
 			</div>

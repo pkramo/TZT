@@ -60,6 +60,8 @@ class accountManagement
 					 $_SESSION['alert'] = true; 
 	                 $_SESSION['message'] = '<div class="alert alert-success">Gebruiker succesvol opgeslagen!</div>';
 	                                      
+				} else {
+					
 				}
 	       }
 	
