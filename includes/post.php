@@ -21,4 +21,5 @@ $_SESSION['message'] = "";
  if (Input::has('pickPackage')) order::pickPackage();
  if (Input::has('finished')) order::finishedOrder();
 
- 
+ // mail contact
+ if (Input::has('sendContact')) mailController::contact();

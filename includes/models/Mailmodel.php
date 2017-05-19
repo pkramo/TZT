@@ -12,21 +12,30 @@
 Class MailModel extends Connection
 {
 	//Standaard verend model
-    public function basic($subject, $sender, $receiver, $content)
-    {
-        $headers = 'MIME-Version: 1.0' . "\r\n" .
+    public function send($name, $email, $message)
+	{
+		$to = "pkramo@gmail.com";
+		// this is your Email address and this has to be changed before giving it to the client
+		$from = $email;
+		// this is the sender's Email address
+		$subject = "Contact aanvraag";
+		$subject2 = "Bevestiging contact aanvraag";
+		$message = $name . " heeft het volgende bericht naar u gestuurd via het contact formulier van scouting de Hanzeluiden:
 
-            'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
-
-            'From: ' . $sender . "\r\n" .
-
-            'Reply-To: ' . $sender . "\r\n" .
-
-            'X-Mailer: PHP/' . phpversion();
-
-        $content_markup = "";
-        $content_markup .= $content;
-        $content_markup .= "";
-        mail($receiver, $subject, $content_markup, $headers);
-    }
+		". $message;
+		$message2 = "Uw vraag is verstuurd we nemen zo spoedig mogelijk contact met u op.
+		    
+		Met vriendelijke groet,
+		TZT";
+		$headers = "From:" . $from;
+		$headers2 = "From:" . $to;
+		
+		
+		return mail($to, $subject, $message, $headers).
+		mail($from, $subject2, $message2, $headers2);
+		
+		
+		
+		
+	}
 }
