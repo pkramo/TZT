@@ -44,8 +44,10 @@ foreach(order::getOrderAdmin($user) as $order)
 	    		<input type="hidden" name="koerier" value="'. $order['Koerier'] .'">
 	    		<input type="hidden" name="puntenwaarde" value="'. $order['Puntenwaarde'] .'">    										
 				'; if($order['Status'] == 'Koerier heeft pakket'){ echo '<button type="submit" name="received" value="Verwijder" class="btn-cms btn btn-warning"><span class="glyphicon glyphicon-ok"></span></button>
-				'; } else if($order['Status'] == 'Pakket aangekomen'){ echo' <button type="submit" name="finished" value="Verwijder" class="btn-cms btn btn-danger"><span class="glyphicon glyphicon-ok"></span></button>
-			'; } echo '</form>
+				'; } else if($order['Status'] == 'Pakket aangekomen'){ echo' <button type="submit" name="finished" value="Verwijder" class="btn-cms btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+			'; } else if ($order['Status'] == 'Koerier haalt pakket op') {echo ' <button type="submit" name="getpack" value="Verwijder" class="btn-cms btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+			'; } echo '
+			</form>
 			</td>
        </tr> 
         ';

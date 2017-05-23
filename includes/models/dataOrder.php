@@ -34,7 +34,7 @@ class dataOrder extends connection {
 	}
 	
 	public function getOrderAdmin(){
-		$sql = "SELECT * from bestelling WHERE Status = 'Koerier heeft pakket' OR Status = 'Pakket aangekomen' ORDER BY Status";
+		$sql = "SELECT * from bestelling WHERE Status = 'Koerier heeft pakket' OR Status = 'Pakket aangekomen' OR Status = 'Koerier haalt pakket op'ORDER BY Status";
 		$q = $this->conn->prepare($sql);
 		$q -> execute();
 		return $q->fetchAll();
@@ -85,6 +85,15 @@ class dataOrder extends connection {
 	}
 	
 	public function finish($packageID,$status){		
+		$sql = "UPDATE bestelling SET Status = :Status WHERE Bestelling_id = :id";
+		$q = $this->conn->prepare($sql);		
+		$q->bindValue(':Status',$status, PDO::PARAM_STR);
+		$q->bindValue(':id',$packageID, PDO::PARAM_STR);		
+		$q->execute();
+		return true;
+	}
+	
+	public function getPack($packageID,$status){		
 		$sql = "UPDATE bestelling SET Status = :Status WHERE Bestelling_id = :id";
 		$q = $this->conn->prepare($sql);		
 		$q->bindValue(':Status',$status, PDO::PARAM_STR);
