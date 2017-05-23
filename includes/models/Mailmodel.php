@@ -31,8 +31,10 @@ Class MailModel extends Connection
 		$headers2 = "From:" . $to;
 		
 		
-		return mail($to, $subject, $message, $headers).
-		mail($from, $subject2, $message2, $headers2);
+		if(mail($to, $subject, $message, $headers) && mail($from, $subject2, $message2, $headers2)){
+			return true;
+		}
+		
 		
 		
 		

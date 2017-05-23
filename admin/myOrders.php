@@ -15,7 +15,8 @@ include('build/header.php');
 	        echo $_SESSION['message']; 
 	    } ?>
     <table class="table table-hover">
-        <thead>                
+        <thead>            
+        	<th>Status</th>    
 	        <th>Route</th>
 	        <th>Afmeting</th>
 	        <th>Gewicht</th>       
@@ -28,7 +29,8 @@ $user = $_SESSION['user']['username'];
  foreach(order::myOrder($user) as $order)
 {
 	echo'
-    <tr>    
+    <tr> 
+    	<td>'.$order['Status'].'</td>   
     	<td>'.$order['Route'].'</td>  
         <td>'.$order['Maat_doos'].'</td>               
         <td>'.$order['Gewicht'].'</td>
@@ -36,7 +38,9 @@ $user = $_SESSION['user']['username'];
         <td>
     		<form method="post">
     			<input type="hidden" name="id" value="'. $order['Bestelling_id'] .'">								
+				'; if($order['Status'] == 'Afgeleverd' || $order['Status'] == 'Wacht op koerier'){ echo '
 				<button type="submit" name="deleteMyOrder" value="Verwijder" class="btn-cms btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+				'; } echo '
 			</form>
 			</td>
        </tr> 

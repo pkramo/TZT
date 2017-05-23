@@ -38,7 +38,9 @@ include('build/header.php');
     		<form method="post">
 	    		<input type="hidden" name="id" value="'. $order['Bestelling_id'] .'">
 	    		<input type="hidden" name="klant" value="'. $order['Klant'] .'">									
+				'; if($_SESSION['user']['role'] != '2'){ echo '
 				<button type="submit" name="pickPackage" value="update" class="btn-cms btn btn-primary"><span class="glyphicon glyphicon-inbox"></span></button>
+				'; } echo '
 			</form>
 			</td>
        </tr> 

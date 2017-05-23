@@ -121,6 +121,14 @@ class dataAccountManagement extends connection {
 		return $q->fetchAll();
 	}
 	
+	public function getPoints($username) {
+		$sql = "SELECT puntentotaal FROM account WHERE gebruikersnaam = :username";	
+		$q = $this -> conn -> prepare($sql);
+		$q -> bindValue(':username', $username, PDO::PARAM_STR);
+		$q -> execute();
+		return $q->fetchAll();
+	}
+	
 	public function getName($username) {
 		$sql = "SELECT voornaam FROM account WHERE gebruikersnaam = :username";	
 		$q = $this -> conn -> prepare($sql);

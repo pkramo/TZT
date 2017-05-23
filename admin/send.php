@@ -34,12 +34,7 @@ foreach(order::getMyPackage($user) as $order)
         <td>'.$order['Gewicht'].'</td>
         <td>'.$order['Klant'].'</td>
         <td>'.$order['Puntenwaarde'].'</td>        
-        <td>
-    		<form method="post">
-	    		<input type="hidden" name="id" value="'. $order['Bestelling_id'] .'">	    										
-				<button type="submit" name="finished" value="Verwijder" class="btn-cms btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
-			</form>
-			</td>
+        
        </tr> 
         ';
       

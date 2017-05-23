@@ -27,8 +27,7 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.0/cropper.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     
-
+ 
 
     <!-- Custom Fonts -->
    
@@ -37,7 +36,7 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
 	<body>
     <div id="wrapper">
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top nav-color" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top nav-color always-open" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header nav-color">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -50,6 +49,7 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav nav-color">
+            	<p class="navbar-text block"><b><?php echo "Punten: ". $_SESSION['user']['points']; ?></b></p>
                 <li class="dropdown">
                     <a href="logout.php"> <?php echo "Uitloggen";  ?></a>                    
                 </li>
@@ -62,11 +62,11 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
                     <li>
                     	<p class="navbar-text"><b><?php echo "Welkom ". $_SESSION['user']['name'] ."!"; ?></b></p>
                     </li>        
-                    <li>
+                    <li <?php if($file == 'index' || $file == 'send'){?> class="active collapsed" <?php } ?>>
 	                    <a data-toggle="collapse" data-parent="#accordion" href="#koerier"><span class="glyphicon glyphicon-send"></span>
 	                    	 Koerier
 	                    </a>            
-	                    <div id="koerier" class="collapse collapsed">
+	                    <div id="koerier" class="collapse">
 	                    	<ul class="collapsemenu">
 		                    	<li <?php if($file == 'index'){?> class="active" <?php } ?>>
 		                        	<a href="index.php"><span class="glyphicon glyphicon-plus"></span> Pakket Kiezen</a>
@@ -77,15 +77,12 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
 	                    	</ul>
 	                    </div>                   
                     </li>
-                    <li>
+                    <li <?php if($file == 'myOrders'){?> class="active" <?php } ?>>
 	                 <a data-toggle="collapse" data-parent="#accordion" href="#klant"><span class="glyphicon glyphicon-briefcase"></span>
 	                 	 	Klant
 	                 </a>            
 	                    <div id="klant" class="collapse">
-                    	<ul class="collapsemenu">
-	                    	<li <?php if($file == 'bestelling'){?> class="active" <?php } ?>>
-	                        	<a href="bestelling.php"><span class="glyphicon glyphicon-cloud"></span> Bestelling Plaatsen</a>
-	                    	</li>
+                    	<ul class="collapsemenu">	                    	
 	                    	<li <?php if($file == 'myOrders'){?> class="active" <?php } ?>>
 	                        	<a href="myOrders.php"><span class="glyphicon glyphicon-list"></span> Mijn Bestellingen</a>
 	                    	</li>
@@ -98,18 +95,29 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
 	                
 	                <?php if($_SESSION['user']['role'] == '2') { ?>
 	                	
-	                 <li>
+	                 <li <?php if($file == 'bestelling' || $file == 'createadmin' || $file == 'infousers' || $file == 'confirm'){?> class="active collapsed" <?php } ?>>
 	                 <a data-toggle="collapse" data-parent="#accordion" href="#admin"><span class="glyphicon glyphicon-list"></span>
 	                 	 	Admin
 	                 </a>            
 	                    <div id="admin" class="collapse">
                     	<ul class="collapsemenu">
+	                    	<?php if($_SESSION['user']['role'] == '2') {?> 
+		                     <li <?php if($file == 'bestelling'){?> class="active" <?php } ?>>
+	                        	<a href="bestelling.php"><span class="glyphicon glyphicon-cloud"></span> Bestelling Plaatsen</a>
+	                    	</li>	                    	
+	                    	 <?php } if($_SESSION['user']['role'] == '2') { ?>
 	                    	<li <?php if($file == 'createadmin'){?> class="active" <?php } ?>>
 	                        	<a href="createadmin.php"><span class="glyphicon glyphicon-user"></span> Nieuwe admin</a>
 	                    	</li>
+	                    	 <?php } if($_SESSION['user']['role'] == '2') {?> 
 	                    	<li <?php if($file == 'infousers'){?> class="active" <?php } ?>>
 	                        	<a href="infousers.php"><span class="glyphicon glyphicon-menu-hamburger"></span> Alle users</a>
 	                    	</li>
+	                    	<?php } if($_SESSION['user']['role'] == '2') {?> 
+	                    	<li <?php if($file == 'confirm'){?> class="active" <?php } ?>>
+		                        <a href="confirm.php"><span class="glyphicon glyphicon-inbox"></span> Aankomst bevestigen</a>
+		                    </li> 		                     
+	                    	<?php } ?>
                     	</ul>
                     </div>
                     </li>
@@ -120,7 +128,7 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </nav>
+        </nav>    
         
 <?php	
 } else {

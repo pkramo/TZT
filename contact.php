@@ -17,7 +17,7 @@ include("build/navbar.php");
 			    if($_SESSION['alert']) {
 			        echo $_SESSION['message']; 
 			    } ?>
-				<form method="POST">
+				<form method="post">
 					<div class="form-group">
 						<h1>Neem contact met ons op!</h1>
 						<label for="name">Naam: </label><input class="form-control" type="text" name="nameContact">

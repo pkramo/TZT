@@ -8,10 +8,10 @@
  *  
  */
 session_start();
-error_reporting(-1);
-ini_set('display_errors', 'On');
-set_error_handler("var_dump");
-define('URL_ROOT', '');
+//error_reporting(-1);
+//ini_set('display_errors', 'On');
+//set_error_handler("var_dump");
+//define('URL_ROOT', '');
 
 include('str.php'); 			//Controlleert de tekens
 include('connection.php'); 		//Verbinding met de database

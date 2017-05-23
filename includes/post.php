@@ -19,7 +19,8 @@ $_SESSION['message'] = "";
  if (Input::has('placeOrder')) order::placeOrder();
  if (Input::has('deleteMyOrder')) order::deleteOrder();
  if (Input::has('pickPackage')) order::pickPackage();
- if (Input::has('finished')) order::finishedOrder();
+ if (Input::has('received')) order::PackageDelivered();
+ if (Input::has('finished')) order::finish();
 
  // mail contact
  if (Input::has('sendContact')) mailController::contact();

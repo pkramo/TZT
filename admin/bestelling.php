@@ -31,8 +31,12 @@ include("build/header.php");
 			</div>
 			<div class="form-group">
 			    <label for="Gewicht">Gewicht(kg)</label> <input class="form-control" type="text" name="gewicht"><br>
-			</div>
-			<div class="form-group">
+			
+			    <label for="Gewicht">Klant Gebruikersnaam/Email</label> <input class="form-control" type="text" name="klant"><br>
+			
+			
+			    <label for="Gewicht">Puntenwaarde</label> <input class="form-control" type="text" name="punten"><br>
+			
 		    	<input type="submit" class="btn btn-primary form-control" name="placeOrder" value="Plaats bestelling">	
 		   	</div>
 		</form>

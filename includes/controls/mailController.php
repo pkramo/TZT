@@ -19,7 +19,8 @@ Class mailController{
 			$email = Input::get('emailContact');
             $content = Input::get('contentContact');
 			        
-            if($mail->send($name,$email,$content)) {            	
+            if($mail->send($name,$email,$content)) {
+            	
             	$_SESSION['alert'] = true; 
 	            $_SESSION['message'] = '<div class="alert alert-success">Contact formulier verzonden</div>';
             } else {

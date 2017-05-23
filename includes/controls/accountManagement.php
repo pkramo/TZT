@@ -78,7 +78,9 @@ class accountManagement
 			$name = $login->getName(Input::get('username'));
 			$_SESSION['user']['name'] = $name[0]['voornaam'];
 			$role = $login->getRole(Input::get('username'));				
-			$_SESSION['user']['role'] = $role[0]['rol'];					
+			$_SESSION['user']['role'] = $role[0]['rol'];
+			$points = $login->getPoints(Input::get('username'));
+			$_SESSION['user']['points'] = $points[0]['puntentotaal'];					
 			header('Location: admin/index.php');			
 
 		} else {
