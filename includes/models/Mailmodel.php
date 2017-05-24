@@ -1,12 +1,11 @@
 <?php
 
 /*
+ * Verzend email
  * 
- *	mail model voor verbindingen met de database
- *  Door: DevAlly
- *  Datum: 30/05/2015
- *  Contactpersoon: Ramon Kerpershoek
- *  
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
  */
 
 Class MailModel extends Connection

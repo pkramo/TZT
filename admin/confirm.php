@@ -1,4 +1,12 @@
 <?php
+/*
+ * Admin bevestigen van de bestelingen, ophalen en afgeven
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 include('build/header.php');
 
 ?>

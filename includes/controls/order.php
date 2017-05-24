@@ -1,5 +1,14 @@
 <?php 
+/*
+ * verwerkt de bestellingen en pakketjes
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 class order {
+	// plaatst bestelling
 	public static function placeOrder() {
 		$order  = new dataOrder;
 		$route = input::get('route');
@@ -19,28 +28,33 @@ class order {
 		}
 	}
 	
+	// haalt bestellingen op
 	public static function getOrder(){
 		$order = new dataOrder;
 		return $order->getOrder();
 	}
 	
+	// haalt de bestellingen op voor de admin
 	public static function getOrderAdmin(){
 		$order = new dataOrder;
 		return $order->getOrderAdmin();
 	}
 	
+	// haalt de bestellingen op per account
 	public static function myOrder($account){
 		$order = new dataOrder;				
 		$output = $order->myOrder($account);			
 		return $output;
 	}
 	
+	// haalt de gekozen bestellingen op
 	public static function getMyPackage($account){
 		$order = new dataOrder;				
 		$output = $order->getMyPackage($account);			
 		return $output;
 	}
 	
+	// verwijdert bestelling
 	public static function deleteOrder() {
 		$delOrder = new dataOrder;
 		$id = Input::get('id');		
@@ -50,6 +64,7 @@ class order {
         }
 	}
 	
+	// zet bestteling op afgeleverd
 	public static function PackageDelivered() {
 		$finOrder = new dataOrder;		
 		$id = Input::get('id');	
@@ -73,6 +88,7 @@ class order {
         }
 	}
 	
+	// rondt bestelling af
 	public static function finish() {
 		$finOrder = new dataOrder;		
 		$id = Input::get('id');	
@@ -89,6 +105,7 @@ class order {
         }
 	}
 	
+	// haalt pakketje op
 	public static function getPack() {
 		$finOrder = new dataOrder;		
 		$id = Input::get('id');	
@@ -105,6 +122,7 @@ class order {
         }
 	}
 	
+	// kiest pakket
 	public static function pickPackage(){
 		$order = new dataOrder;				
 		$packageID = Input::get('id');

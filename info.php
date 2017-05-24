@@ -1,4 +1,11 @@
 <?php
+/*
+ * Informatie pagina
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
 include("includes/autoloader.php");
 include("build/head.php");
 include("build/navbar.php");

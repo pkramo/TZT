@@ -1,12 +1,11 @@
 <?php
 
 /*
+ * Database verbinding
  * 
- *	De database connectie
- *  Door: JNF1-01
- *  Datum: 16/11/2016
- *  Contactpersoon: Ramon Kerpershoek
- *  
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
  */
 
 class Connection 

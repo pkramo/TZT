@@ -22,3 +22,5 @@
 	</div>
 </body>
 </html>
+
+<!-- De footer van de front-end --> 

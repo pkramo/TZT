@@ -1,4 +1,12 @@
 <?php
+/*
+ * Admin account aanmaken
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 
 include("build/header.php");
 if($_SESSION['user']['role'] == '1') {

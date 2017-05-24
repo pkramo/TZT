@@ -1,4 +1,12 @@
 <?php
+/*
+ * Overzicht van de status van de klant zijn bestellingen
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 include('build/header.php');
 
 ?>

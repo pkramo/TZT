@@ -1,8 +1,17 @@
 <?php 
+
+/*
+ * Hier wordt alles geregeld voor de account
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+ 
 class accountManagement
 {
 
-//Registreren gebruiker hoi
+//Registreren gebruiker
 	public static function register(){
             $register  = new dataAccountManagement;
             $voornaam = input::get('Voornaam');
@@ -36,6 +45,7 @@ class accountManagement
 			}
         }
 
+// Registreren admin
 	public static function registerAdmin(){
 	            $register  = new dataAccountManagement;
 	            $voornaam = input::get('Voornaam');
@@ -65,6 +75,7 @@ class accountManagement
 				}
 	       }
 	
+	// Login account cms
 	public static function login()
 	{
 		$login  = new dataAccountManagement;
@@ -91,74 +102,13 @@ class accountManagement
 		}			
 	}
     
-    	public static function rol()
-	{
-		$rol  = new dataAccountManagement;
-		$username  = Input::get('username');
-        $role = Input::get('rol');
-        		
-	}
-	public static function getParents(){
-		$getOuder = new dataAccountManagement;
-		return $getOuder->getParents();
-	}
-	public static function getChild(){
-		$getKind = new dataAccountManagement;
-		return $getKind->getChild();
-	}
-	
-	public static function parenthood()
-	{
-		$register  	= new dataAccountManagement;
-		$child  	= Input::get('child');
-		$parent  	= Input::get('parent');
-		// geeft alert als kind goed is gekoppeld
-		if ($register->setParenthood($child,$parent)) {
-			 $_SESSION['alert'] = true; 
-             $_SESSION['message'] = '<div class="alert alert-success">Kind aan Ouder gekoppeld!</div>';
-		} else {
-			 $_SESSION['alert'] = true; 
-             $_SESSION['message'] = '<div class="alert alert-danger">Error!</div>';
-		}			
-	}
-	
-	//Vakken
-	public static function Subject(){
-		$subject = new dataAccountManagement;
-		return $subject->Subject();
-	}
-	
-	public static function setUserSubject()
-	{
-		$register	= new dataAccountManagement;
-		$username	= Input::get('username');
-		$subject	= Input::get('subject');
-		// geeft alert als vak goed is gekoppeld 
-		if ($register->setUserSubject($username, $subject)) {
-			$_SESSION['alert'] = true; 
-             $_SESSION['message'] = '<div class="alert alert-success">Vak succesvol gekoppeld!</div>';
-		} else {
-			$_SESSION['alert'] = true; 
-            $_SESSION['message'] = '<div class="alert alert-danger">Error!</div>';
-		}
-	}
-	
-	//Database zoekfunctie voor gebruikers
+   	//Database zoekfunctie voor gebruikers
 	public static function userInfo(){
 		$userInfo = new dataAccountManagement;
 		return $userInfo->getInfo();
 	}
 
-    //Database zoekfunctie voor kinderen
-	public static function kindInfo(){
-		$kindInfo = new dataAccountManagement;
-		return $kindInfo->kindInfo();
-	}
-    //Database zoekfunctie voor vakken
-    public static function vakInfo(){
-		$vakInfo = new dataAccountManagement;
-		return $vakInfo->vakInfo();
-	}
+   
     //Database verwijderfunctie voor gebruikers
 public static function deleteUser() {
 		$userDel = new dataAccountManagement;
@@ -166,26 +116,9 @@ public static function deleteUser() {
                  $_SESSION['alert'] = true; 
                  $_SESSION['message'] = '<div class="alert alert-success">Succesvol verwijderd!</div>';
             }
-		}
-    //Database verwijderfunctie voor gekoppelde ouders
-    public static function deleteParent() {
-		$parentDel = new dataAccountManagement;
-     
-            if($parentDel->delParent(Input::get('child'),Input::get('parent'))) {
-                 $_SESSION['alert'] = true; 
-                 $_SESSION['message'] = '<div class="alert alert-success">Succesvol verwijderd!</div>';
-            }
-		}
-    //Database verwijderfunctie voor gekoppelde vakken
-     public static function deleteVak() {
-		$vakDel = new dataAccountManagement;
-    
-            if($vakDel->delVak(Input::get('username'),Input::get('subject'))) {
-                 $_SESSION['alert'] = true; 
-                 $_SESSION['message'] = '<div class="alert alert-success">Succesvol verwijderd!</div>';
-            }
-		}
-	 
+		}   
+   
+	 //  Haalt users op
 	 public static function getUser($user){
 		$users = new dataAccountManagement;				
 		$output = $users->getUser($user);			

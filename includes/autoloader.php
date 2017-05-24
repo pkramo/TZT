@@ -1,11 +1,10 @@
 <?php
 /*
+ * Include alle models en controllers
  * 
- *	Alle classes, models en includes worden verzameld in dit bestand om te includen
- *  Door: DevAlly
- *  Datum: 06/12/2016
- *  Contactpersoon: Ramon Kerpershoek
- *  
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
  */
 session_start();
 //error_reporting(-1);

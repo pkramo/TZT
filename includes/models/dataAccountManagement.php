@@ -1,5 +1,9 @@
 <?php
 /*
+ * Regelt database connectie voor accounts
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
  * 
  */
  
@@ -60,7 +64,7 @@ class dataAccountManagement extends connection {
 		return true;
 	}
 
-
+	// Registreren van admin
 	public function setRegisterAdmin($voornaam,$voorletter,$tussenvoegsel,$achternaam,$geboortedatum,$straat,$huisnummer,$postcode,$woonplaats,$telefoonnummer,$emailadres,$wachtwoord,$rol) {
 		$sql = "INSERT INTO account (gebruikersnaam, voornaam, voorletter, tussenvoegsel, achternaam, geboortedatum, straat, huisnummer, postcode, woonplaats, telefoonnummer, emailadres, wachtwoord, rol) 
 		VALUES (
@@ -121,6 +125,7 @@ class dataAccountManagement extends connection {
 		return $q->fetchAll();
 	}
 	
+	// haalt aantal punten op van gebruiker
 	public function getPoints($username) {
 		$sql = "SELECT puntentotaal FROM account WHERE gebruikersnaam = :username";	
 		$q = $this -> conn -> prepare($sql);
@@ -129,6 +134,7 @@ class dataAccountManagement extends connection {
 		return $q->fetchAll();
 	}
 	
+	// haalt de voornaam op
 	public function getName($username) {
 		$sql = "SELECT voornaam FROM account WHERE gebruikersnaam = :username";	
 		$q = $this -> conn -> prepare($sql);
@@ -137,37 +143,7 @@ class dataAccountManagement extends connection {
 		return $q->fetchAll();
 	}
 	
-	// hier worden alle ouders geselecteerd uit de database om het te kunnen koppelen
-	public function getParents(){
-		$sql = "SELECT * FROM users WHERE rol = 'Ouder' ";
-		$q = $this->conn->prepare($sql);
-		$q -> execute();
-		return $q->fetchAll();
-	}
-	// hier worden alle kinderen geselecteerd uit de database om het te kunnen koppelen
-	public function getChild(){
-		$sql = "SELECT * FROM users WHERE rol = 'Kind' ";
-		$q = $this->conn->prepare($sql);
-		$q -> execute();
-		return $q->fetchAll();
-	}
-	// hier worden alle vakken getoond om ze later te koppelen aan een kind
-	public function Subject(){
-		$sql = "SELECT * FROM subject";
-		$q = $this->conn->prepare($sql);
-		$q -> execute();
-		return $q->fetchAll();
-	}
-    // hier word de tabel ouderschap gevuld
-	public function setParenthood($child, $parent) {
-		$sql = "INSERT INTO parent (user_child, user_parent)
-		VALUES (:child, :parent)";
-		$q = $this -> conn -> prepare($sql);
-		$q -> bindValue(':child', $child, PDO::PARAM_STR);
-		$q -> bindValue(':parent', $parent, PDO::PARAM_STR);
-		$q -> execute();	
-		return true;
-	}
+	
 	// hier worden alle gebruikers met de rol ouder of kind opgehaald om te tonen voor de beheerder
 	public function getInfo(){
 		$sql = "SELECT * from account WHERE rol = '1' OR rol = '2' ORDER BY soortklant";
@@ -175,30 +151,7 @@ class dataAccountManagement extends connection {
 		$q -> execute();
 		return $q->fetchAll();
 	}
-    // hier worden de lijst uit de database gehaald voor de lijst op de ouderschap pagina
-    public function kindInfo(){
-		$sql = "SELECT * from parent ORDER BY 'user_child'";
-		$q = $this->conn->prepare($sql);
-		$q -> execute();
-		return $q->fetchAll();
-	}
-        // hier worden de lijst uit de database gehaald voor de lijst op de vakken pagina
-      public function vakInfo(){
-		$sql = "SELECT * from user_subject";
-		$q = $this->conn->prepare($sql);
-		$q -> execute();
-		return $q->fetchAll();
-	}
-	// hier word de een gebruiker aan een vak gekoppeld en dat word in de database gezet
-	public function setUserSubject($username, $subject) {
-		$sql = "INSERT INTO user_subject (username, subject)
-		VALUES (:username, :subject)";
-		$q = $this -> conn -> prepare($sql);
-		$q -> bindValue(':username', $username, PDO::PARAM_STR);
-		$q -> bindValue(':subject', $subject, PDO::PARAM_STR);
-		$q -> execute();
-		return true;
-	}
+    
         // deze functie wordt gebruikt op de gebruikers pagina om een gebruiker te verwijderen
 	public function delUser($user) {
 		$sql = "DELETE FROM account WHERE gebruikersnaam = :username";
@@ -216,16 +169,8 @@ class dataAccountManagement extends connection {
 		$q->execute();
 		return true;
 	}
-    // deze functie wordt gebruiker om een vak weg te halen bij een kind
-    public function delVak($username,$subject) {
-		$sql = "DELETE FROM user_subject WHERE username = :username AND subject = :subject";
-		$q = $this->conn->prepare($sql);
-        $q->bindValue(':username', $username, PDO::PARAM_STR);
-        $q->bindValue(':subject', $subject, PDO::PARAM_STR);
-		$q->execute();
-		return true;
-	}
-	
+   
+   // haalt de gebruiker op
 	public function getUser($user){		
 		$sql = "SELECT * from account WHERE gebruikersnaam = :username";
 		$q = $this->conn->prepare($sql);

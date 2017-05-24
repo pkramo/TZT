@@ -4,8 +4,8 @@ $_SESSION['message'] = "";
 /*
  * Post alle functies hier
  * 
- * Naam: Ramon Kerpershoek
- * Datum: 6-12-2016
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
  * 
  */
  

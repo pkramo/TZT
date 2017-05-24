@@ -18,3 +18,4 @@
 	  </head>
 	<body>
 	
+<!-- De head gegevens van de front end --> 

@@ -1,4 +1,13 @@
 <?php
+
+/*
+ * Haalt de navbar op in cms
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+ 
 include('../includes/autoloader.php');
 
 if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {

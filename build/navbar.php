@@ -24,3 +24,4 @@
  </nav>
 
 
+<!-- De navbar van de front end -->

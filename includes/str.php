@@ -1,5 +1,12 @@
 <?php
-
+/*
+ * Voorkomt rare tekens
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+ 
 class Str
 {
     /**

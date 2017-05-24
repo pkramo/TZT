@@ -1,4 +1,12 @@
 <?php
+/*
+ * Admin zet hier pakket neer om opgehaald te worden door koerier
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 include('build/header.php');
 
 ?>

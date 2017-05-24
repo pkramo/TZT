@@ -1,4 +1,11 @@
 <?php
+/*
+ * handelt alle getter en setters en de has functie
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
 class Input
 {
 	public static function get($postKey=null){

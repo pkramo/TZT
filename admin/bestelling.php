@@ -1,5 +1,14 @@
 <?php
+/*
+ * Bestelling plaatsen
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 include("build/header.php");
+
 
 ?>
 

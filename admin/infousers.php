@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Account overzicht voor admin
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+
 include("build/header.php");
 if($_SESSION['user']['role'] == '1') {
 	header('location: ../index.php');

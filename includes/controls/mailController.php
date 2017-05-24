@@ -1,12 +1,11 @@
 <?php
 
 /*
+ * Contact functie
  * 
- *	Mail controller voor de mail
- *  Door: DevAlly
- *  Datum: 30/05/2015
- *  Contactpersoon: Ramon Kerpershoek
- *  
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
  */
 
 Class mailController{

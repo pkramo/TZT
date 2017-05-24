@@ -1,4 +1,13 @@
 <?php
+
+/*
+ * Hier staan alle gegevens van het ingelogde account
+ * 
+ * Contactpersoon: Ramon Kerpershoek
+ * Datum: 24-5-2017
+ * 
+ */
+ 
 include("build/header.php");
 
 $users = $_SESSION['user']['username']; 
