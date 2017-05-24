@@ -71,12 +71,15 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
 		                    	<li <?php if($file == 'index'){?> class="active" <?php } ?>>
 		                        	<a href="index.php"><span class="glyphicon glyphicon-plus"></span> Pakket Kiezen</a>
 		                    	</li>	                    
+		                    	<?php if($_SESSION['user']['role'] == '1') { ?>
 		                    	<li <?php if($file == 'send'){?> class="active" <?php } ?>>
 		                        	<a href="send.php"><span class="glyphicon glyphicon-inbox"></span> Mijn Leveringen</a>
-		                    	</li>  
+		                    	</li>
+		                    	<?php } ?>  
 	                    	</ul>
 	                    </div>                   
                     </li>
+                    <?php if($_SESSION['user']['role'] == '1') { ?>
                     <li <?php if($file == 'myOrders'){?> class="active" <?php } ?>>
 	                 <a data-toggle="collapse" data-parent="#accordion" href="#klant"><span class="glyphicon glyphicon-briefcase"></span>
 	                 	 	Klant
@@ -89,6 +92,7 @@ if($_SESSION['user']['role'] == '1' || $_SESSION['user']['role'] == '2') {
                     	</ul>
                     </div>
                     </li>
+                    <?php } ?>
                     <li <?php if($file == 'mijnGegevens'){?> class="active" <?php } ?>>
 	                      <a href="mijnGegevens.php"><span class="glyphicon glyphicon-user"></span> Mijn gegevens</a>
 	                </li>
